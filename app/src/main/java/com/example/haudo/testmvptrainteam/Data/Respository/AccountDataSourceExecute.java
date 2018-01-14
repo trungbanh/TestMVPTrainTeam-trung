@@ -6,6 +6,8 @@ import android.util.Log;
 import com.example.haudo.testmvptrainteam.Data.Database.AccountDao;
 import com.example.haudo.testmvptrainteam.Data.Object.AccountObject;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -63,8 +65,11 @@ public class AccountDataSourceExecute extends AccountDataSource {
         mExecutor.execute(new Runnable() {
             @Override
             public void run() {
-                if (accountObject == mAccountDao.getAccount(accountObject.getUser().toString())){
-                    callback.onAccountLoaded(accountObject);
+                AccountObject tempAccount = mAccountDao.getAccount(accountObject.getUser());
+                if (accountObject == tempAccount) {
+                    callback.isTrue();
+                } else {
+
                 }
             }
         });

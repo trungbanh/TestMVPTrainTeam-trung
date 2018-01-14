@@ -26,6 +26,7 @@ public class AccountRepository extends AccountDataSource {
     @Override
     public void insert(AccountObject accountObject, final AccountCallback callback) {
         mData.insert(accountObject, new AccountCallback() {
+
             @Override
             public void onAccountInsert(long value) {
                 callback.onAccountInsert(value);
@@ -49,12 +50,11 @@ public class AccountRepository extends AccountDataSource {
     }
 
     @Override
-    void checkAccount(AccountObject accountObject, final AccountCallback callback) {
+    public void checkAccount(AccountObject accountObject, final AccountCallback callback) {
         mData.checkAccount(accountObject, new AccountCallback() {
             @Override
             public void onAccountLoaded(AccountObject accountObject) {
                 super.onAccountLoaded(accountObject);
-                callback.onAccountLoaded(accountObject);
             }
         });
     }

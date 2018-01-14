@@ -28,4 +28,8 @@ public abstract class AccountCallback {
 
     }
 
+    public void isTrue () {
+
+    }
+
 }

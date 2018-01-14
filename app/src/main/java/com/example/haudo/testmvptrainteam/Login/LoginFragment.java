@@ -54,8 +54,6 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         mPassword = mView.findViewById(R.id.edtPass);
         mLogin = mView.findViewById(R.id.btnLogin);
         mRegister = mView.findViewById(R.id.tv_Register);
-
-
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
