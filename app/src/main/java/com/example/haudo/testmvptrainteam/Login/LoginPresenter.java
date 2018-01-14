@@ -1,5 +1,7 @@
 package com.example.haudo.testmvptrainteam.Login;
 
+import android.util.Log;
+
 import com.example.haudo.testmvptrainteam.Data.Object.AccountObject;
 import com.example.haudo.testmvptrainteam.Data.Respository.AccountCallback;
 import com.example.haudo.testmvptrainteam.Data.Respository.AccountRepository;
@@ -10,37 +12,38 @@ import com.example.haudo.testmvptrainteam.Data.Respository.AccountRepository;
 
 public class LoginPresenter implements LoginContract.Presenter {
 
-
     private AccountRepository mRepository ;
     private LoginContract.View  mView;
-
 
     public LoginPresenter(AccountRepository accountRepository, LoginFragment costFragment) {
         mRepository = accountRepository ;
         mView = costFragment ;
         mView.setPresenter(this);
+        Log.i("log","set presenter");
     }
 
     @Override
-    public void checkAccount(final String user , final String pass) {
-        mRepository.getAccount(user, new AccountCallback() {
+    public void checkAccount(final AccountObject accountObject1) {
+        mRepository.getAccount(accountObject1.getUser(), new AccountCallback() {
             @Override
             public void onAccountLoaded(AccountObject accountObject) {
                 super.onAccountLoaded(accountObject);
-                AccountObject accountObject1 = new AccountObject(user,pass) ;
-
+                Log.i("log","onlick check presenter") ;
                 if (accountObject1 == accountObject) {
                     mView.showSucess();
                 } else {
                     mView.showFail();
                 }
-
             }
         });
     }
-
     @Override
     public boolean isSucess() {
         return false;
+    }
+
+    @Override
+    public void moveFrament() {
+        mView.move2register();
     }
 }

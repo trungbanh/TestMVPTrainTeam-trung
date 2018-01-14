@@ -32,8 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
             costFragment = RegisterFragment.newInstance();
             ActivityUtil.addFragmentToActivity(getSupportFragmentManager(), costFragment, R.id.container);
         }
-        RegisterPresenter registerPresenter = new RegisterPresenter(Injection.provideTasksRepository(getApplicationContext()),
-                costFragment);
-
+        RegisterPresenter registerPresenter = new RegisterPresenter(Injection
+                .provideTasksRepository(getApplicationContext()), costFragment);
     }
 }

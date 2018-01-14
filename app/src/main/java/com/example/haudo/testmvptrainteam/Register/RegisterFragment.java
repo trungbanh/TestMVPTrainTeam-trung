@@ -75,7 +75,6 @@ public class RegisterFragment extends Fragment implements RegisterContract.View,
         mPresenter.insert(account);
     }
 
-    //click to check password if password is correct do register account
     @Override
     public void onClick(View view) {
         String user = mUser.getText().toString();
