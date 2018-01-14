@@ -55,19 +55,19 @@ public class LoginFragment extends Fragment implements LoginContract.View {
         mLogin = mView.findViewById(R.id.btnLogin);
         mRegister = mView.findViewById(R.id.tv_Register);
 
+
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.moveFrament();
             }
         });
-
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name =mUser.getText().toString() ;
                 String pass = mPassword.getText().toString();
-                Log.i("log","onlick Login fragment") ;
+
                 presenter.checkAccount(new AccountObject(name,pass));
             }
         });

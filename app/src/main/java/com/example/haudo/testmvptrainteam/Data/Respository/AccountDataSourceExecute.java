@@ -46,7 +46,6 @@ public class AccountDataSourceExecute extends AccountDataSource {
             }
         });
     }
-
     @Override
     public void getAccount(final String user, final AccountCallback callback) {
         mExecutor.execute(new Runnable() {
@@ -59,7 +58,6 @@ public class AccountDataSourceExecute extends AccountDataSource {
             }
         });
     }
-
     @Override
     void checkAccount(final AccountObject accountObject, final AccountCallback callback) {
         mExecutor.execute(new Runnable() {

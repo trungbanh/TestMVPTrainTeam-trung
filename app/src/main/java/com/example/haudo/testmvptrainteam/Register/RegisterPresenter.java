@@ -37,7 +37,6 @@ public class RegisterPresenter implements RegisterContract.Presenter {
             }
         });
     }
-
     @Override
     public void checkPassword(String passWord, String confirmPassword, AccountObject account) {
         if (passWord.equals(confirmPassword)) {
