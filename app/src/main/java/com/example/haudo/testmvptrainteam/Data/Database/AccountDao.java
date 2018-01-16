@@ -21,11 +21,8 @@ public interface AccountDao {
     @Insert
     long insert(AccountObject accountObject);
 
-    @Update
-    void update(AccountObject accountObject);
-
     @Query("UPDATE Account SET user = :user, password = :password")
-    void update(String user, String password);
+    long update(String user, String password);
 
     @Delete
     void delete(AccountObject accountObject);

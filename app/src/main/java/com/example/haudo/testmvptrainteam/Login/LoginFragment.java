@@ -18,6 +18,7 @@ import com.example.haudo.testmvptrainteam.Data.Object.AccountObject;
 import com.example.haudo.testmvptrainteam.R;
 import com.example.haudo.testmvptrainteam.Register.RegisterActivity;
 import com.example.haudo.testmvptrainteam.Register.RegisterFragment;
+import com.example.haudo.testmvptrainteam.UpDateAccount.UpDateActivity;
 
 /**
  * Created by HauDo on 1/11/2018.
@@ -79,12 +80,8 @@ public class LoginFragment extends Fragment implements LoginContract.View {
 
     @Override
     public void showSucess() {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(getContext(),"okey chua",Toast.LENGTH_SHORT).show();
-            }
-        });
+        Intent intent =  new Intent(getContext(), UpDateActivity.class) ;
+        startActivity(intent);
     }
     @Override
     public void showFail() {

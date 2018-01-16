@@ -75,4 +75,19 @@ public class AccountDataSourceExecute extends AccountDataSource {
         });
     }
 
+    @Override
+    void update(final AccountObject user, final AccountCallback callback) {
+        mExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    long value = mAccountDao.update(user.getUser(),user.getPassword());
+                    callback.onAccountUpdate(value);
+                } catch (SQLiteConstraintException e) {
+                    callback.onError("Loi update");
+                }
+            }
+        });
+    }
+
 }

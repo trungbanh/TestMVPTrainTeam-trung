@@ -13,4 +13,6 @@ public abstract class AccountDataSource {
     abstract void getAccount(String user, AccountCallback callback);
 
     abstract void checkAccount (AccountObject accountObject , AccountCallback callback);
+
+    abstract void update (AccountObject accountObject ,AccountCallback callback) ;
 }

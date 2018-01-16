@@ -1,5 +1,7 @@
 package com.example.haudo.testmvptrainteam.Data.Respository;
 
+import android.widget.Toast;
+
 import com.example.haudo.testmvptrainteam.Data.Object.AccountObject;
 
 /**
@@ -55,6 +57,22 @@ public class AccountRepository extends AccountDataSource {
             @Override
             public void onAccountLoaded(AccountObject accountObject) {
                 super.onAccountLoaded(accountObject);
+            }
+        });
+    }
+
+    @Override
+    public void update(AccountObject accountObject, final AccountCallback callback) {
+        mData.update(accountObject, new AccountCallback() {
+            @Override
+            public void onAccountUpdate(long value) {
+                super.onAccountUpdate(value);
+                callback.onAccountUpdate(value);
+            }
+
+            @Override
+            public void onError(String error) {
+                super.onError(error);
             }
         });
     }
