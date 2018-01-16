@@ -85,7 +85,6 @@ public class LoginFragment extends Fragment implements LoginContract.View {
                 Toast.makeText(getContext(),"okey chua",Toast.LENGTH_SHORT).show();
             }
         });
-        Log.i("logg","suces");
     }
     @Override
     public void showFail() {

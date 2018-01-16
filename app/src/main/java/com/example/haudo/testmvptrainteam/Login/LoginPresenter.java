@@ -24,14 +24,27 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void checkAccount(final AccountObject accountObject1) {
-        //Log.i("log","onlick Login fragment");
-        mRepository.checkAccount(accountObject1, new AccountCallback() {
+
+        mRepository.getAccount(accountObject1.getUser(), new AccountCallback() {
             @Override
             public void onAccountLoaded(AccountObject accountObject) {
                 super.onAccountLoaded(accountObject);
 
+                if (accountObject1.getPassword().equals(accountObject.getPassword())){
+                    mView.showSucess();
+                }else {
+                    mView.showFail();
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                super.onError(error);
+
+                mView.showFail();
             }
         });
+
     }
     @Override
     public boolean isSucess() {
